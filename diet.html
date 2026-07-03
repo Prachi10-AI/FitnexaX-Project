@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Diet – FitnexaX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="app-body">
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Menu">☰</button>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Fitnexa<span class="logo-x">X</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
+      <a href="fitness.html" class="nav-link">🏋️ Fitness</a>
+      <a href="diet.html" class="nav-link">🥗 Diet</a>
+      <a href="sleep.html" class="nav-link">😴 Sleep</a>
+      <a href="profile.html" class="nav-link">👤 Profile</a>
+    </nav>
+    <button id="logoutBtn" class="nav-link logout-btn">🚪 Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Diet & Nutrition 🥗</h1>
+        <p class="page-sub">Smart recipes, meal analysis and macro tracking.</p>
+      </div>
+    </header>
+
+    <section class="glass-card">
+      <h3>Today's Nutrition</h3>
+      <div class="nutrition-summary">
+        <div class="nutrition-cal">
+          <p><strong id="dietCaloriesToday">0</strong> / <span id="dietCalorieGoal">0</span> kcal</p>
+          <div class="progress-bar"><div id="dietCalorieProgress" class="progress-fill"></div></div>
+        </div>
+        <div class="macro-grid">
+          <div class="macro-item"><span>🥩 Protein</span><strong><span id="proteinToday">0</span> g</strong></div>
+          <div class="macro-item"><span>🍞 Carbs</span><strong><span id="carbsToday">0</span> g</strong></div>
+          <div class="macro-item"><span>🥑 Fats</span><strong><span id="fatsToday">0</span> g</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="glass-card">
+        <h3>Recipe Generator</h3>
+        <p class="muted">Tuned to your diet preference (<span id="dietPrefLabel"></span>).</p>
+        <form id="recipeForm" class="inline-form">
+          <select id="mealType">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+            <option value="snack">Snack</option>
+          </select>
+          <select id="goalType">
+            <option value="balanced">Balanced</option>
+            <option value="high-protein">High Protein</option>
+            <option value="low-carb">Low Carb</option>
+          </select>
+          <button type="submit" class="btn-primary">✨ Generate</button>
+        </form>
+        <div id="recipeResults" class="card-grid"></div>
+      </div>
+
+      <div class="glass-card">
+        <h3>Meal Analyzer</h3>
+        <p class="muted">Describe your meal and get an instant nutrition estimate.</p>
+        <textarea id="mealDescription" rows="3" placeholder="e.g. 2 chapati, dal, rice, salad, curd"></textarea>
+        <button id="analyzeMealBtn" class="btn-primary">🔍 Analyze Meal</button>
+        <div id="mealAnalysisResult" class="analysis-result"></div>
+      </div>
+    </section>
+
+    <section class="glass-card">
+      <h3>Quick Meal Logger</h3>
+      <form id="quickMealForm" class="grid-5">
+        <input type="text" id="mealName" placeholder="Meal name" required />
+        <input type="number" id="mealCalories" placeholder="Calories" min="0" required />
+        <input type="number" id="mealProtein" placeholder="Protein (g)" min="0" required />
+        <input type="number" id="mealCarbs" placeholder="Carbs (g)" min="0" required />
+        <input type="number" id="mealFats" placeholder="Fats (g)" min="0" required />
+        <button type="submit" class="btn-primary full-width">+ Add Meal</button>
+      </form>
+      <h4 class="section-sub">Today's Meals</h4>
+      <div id="todayMeals"></div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/diet.js"></script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard – FitnexaX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="app-body">
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Menu">☰</button>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Fitnexa<span class="logo-x">X</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
+      <a href="fitness.html" class="nav-link">🏋️ Fitness</a>
+      <a href="diet.html" class="nav-link">🥗 Diet</a>
+      <a href="sleep.html" class="nav-link">😴 Sleep</a>
+      <a href="profile.html" class="nav-link">👤 Profile</a>
+    </nav>
+    <button id="logoutBtn" class="nav-link logout-btn">🚪 Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1 id="welcomeText">Dashboard</h1>
+        <p id="dateText" class="page-sub"></p>
+      </div>
+      <div class="points-pill glass-card">🏆 <span id="totalPointsDash">0</span> pts</div>
+    </header>
+
+    <section class="grid-4">
+      <div class="glass-card stat-card accent-green">
+        <h3>BMI</h3>
+        <p class="stat-big"><span id="bmiValue">–</span></p>
+        <span id="bmiStatus" class="badge"></span>
+      </div>
+      <div class="glass-card stat-card accent-blue">
+        <h3>Calories Today</h3>
+        <p class="stat-big"><span id="caloriesConsumed">0</span><small>/<span id="calorieGoalDash">0</span> kcal</small></p>
+        <div class="progress-bar"><div id="calorieProgress" class="progress-fill"></div></div>
+      </div>
+      <div class="glass-card stat-card accent-purple">
+        <h3>Last Night Sleep</h3>
+        <p class="stat-big"><span id="sleepHoursLastNight">–</span><small> hrs</small></p>
+        <span id="sleepScoreBadge" class="badge"></span>
+      </div>
+      <div class="glass-card stat-card accent-cyan">
+        <h3>Water Today</h3>
+        <p class="stat-big"><span id="waterToday">0</span><small>/<span id="waterGoal">8</span> glasses</small></p>
+        <div class="water-controls">
+          <button id="waterMinus" class="btn-ghost btn-round" aria-label="Remove glass">−</button>
+          <button id="waterPlus" class="btn-primary btn-round" aria-label="Add glass">+</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-3">
+      <div class="glass-card quick-stat">
+        <h4>💪 Total Workouts</h4>
+        <p id="totalWorkouts">0</p>
+      </div>
+      <div class="glass-card quick-stat">
+        <h4>🍽️ Meals Logged</h4>
+        <p id="totalMeals">0</p>
+      </div>
+      <div class="glass-card quick-stat">
+        <h4>🌙 Sleep (7-day avg)</h4>
+        <p><span id="avgSleepHours">0</span> hrs</p>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="glass-card">
+        <h3>Fitness Progress (7 days)</h3>
+        <canvas id="fitnessChart" height="220"></canvas>
+      </div>
+      <div class="glass-card">
+        <h3>Nutrition Overview (7 days)</h3>
+        <canvas id="nutritionChart" height="220"></canvas>
+      </div>
+    </section>
+
+    <section class="grid-1">
+      <div class="glass-card">
+        <h3>Sleep Pattern (7 days)</h3>
+        <canvas id="sleepChart" height="160"></canvas>
+      </div>
+    </section>
+
+    <section class="glass-card tip-card">
+      <h3>💡 Today's Tip</h3>
+      <p id="dailyTip"></p>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

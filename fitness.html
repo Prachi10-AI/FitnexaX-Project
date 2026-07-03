@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Fitness – FitnexaX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="app-body">
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Menu">☰</button>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Fitnexa<span class="logo-x">X</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
+      <a href="fitness.html" class="nav-link">🏋️ Fitness</a>
+      <a href="diet.html" class="nav-link">🥗 Diet</a>
+      <a href="sleep.html" class="nav-link">😴 Sleep</a>
+      <a href="profile.html" class="nav-link">👤 Profile</a>
+    </nav>
+    <button id="logoutBtn" class="nav-link logout-btn">🚪 Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Fitness 🏋️</h1>
+        <p class="page-sub">Generate a plan, track it live, earn points.</p>
+      </div>
+      <div class="points-pill glass-card">🏆 <span id="totalPointsFit">0</span> pts</div>
+    </header>
+
+    <section class="grid-3">
+      <div class="glass-card quick-stat">
+        <h4>🔥 Current Streak</h4>
+        <p><span id="workoutStreak">0</span> days</p>
+      </div>
+      <div class="glass-card quick-stat">
+        <h4>💪 Workouts This Week</h4>
+        <p id="workoutsThisWeek">0</p>
+      </div>
+      <div class="glass-card quick-stat">
+        <h4>⚡ Calories Burned (7d)</h4>
+        <p><span id="caloriesBurned7">0</span> kcal</p>
+      </div>
+    </section>
+
+    <section class="glass-card">
+      <h3>Workout Generator</h3>
+      <form id="workoutGeneratorForm" class="inline-form">
+        <select id="genFitnessLevel">
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <select id="genCategory">
+          <option value="full-body">Full Body</option>
+          <option value="upper-body">Upper Body</option>
+          <option value="lower-body">Lower Body</option>
+          <option value="cardio">Cardio</option>
+          <option value="core">Core</option>
+        </select>
+        <select id="genDuration">
+          <option value="20">20 min</option>
+          <option value="30" selected>30 min</option>
+          <option value="45">45 min</option>
+        </select>
+        <button type="submit" class="btn-primary">⚡ Generate Plan</button>
+      </form>
+      <div id="generatedWorkout" class="workout-list"></div>
+    </section>
+
+    <section class="glass-card tracker-card">
+      <h3>Live Workout Tracker</h3>
+      <div id="currentExercise" class="current-exercise">Generate a plan, then press Start.</div>
+      <div class="timer-controls">
+        <span id="exerciseTimer" class="timer-display">00:00</span>
+        <button id="startWorkoutBtn" class="btn-primary">▶ Start</button>
+        <button id="pauseWorkoutBtn" class="btn-ghost" disabled>⏸ Pause</button>
+        <button id="nextExerciseBtn" class="btn-ghost" disabled>✔ Done, Next</button>
+        <button id="endWorkoutBtn" class="btn-danger" disabled>■ Finish</button>
+      </div>
+    </section>
+
+    <section class="glass-card">
+      <h3>Achievements & Badges</h3>
+      <div id="achievementBadges" class="badge-list"></div>
+    </section>
+
+    <section class="glass-card">
+      <h3>Workout History</h3>
+      <div id="workoutHistory"></div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/fitness.js"></script>
+</body>
+</html>

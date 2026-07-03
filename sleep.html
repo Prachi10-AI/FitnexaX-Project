@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sleep – FitnexaX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="app-body">
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Menu">☰</button>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Fitnexa<span class="logo-x">X</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
+      <a href="fitness.html" class="nav-link">🏋️ Fitness</a>
+      <a href="diet.html" class="nav-link">🥗 Diet</a>
+      <a href="sleep.html" class="nav-link">😴 Sleep</a>
+      <a href="profile.html" class="nav-link">👤 Profile</a>
+    </nav>
+    <button id="logoutBtn" class="nav-link logout-btn">🚪 Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Sleep Tracker 😴</h1>
+        <p class="page-sub">Track, score and improve your rest.</p>
+      </div>
+      <div class="points-pill glass-card">🕐 <span id="liveClock">--:--</span></div>
+    </header>
+
+    <section class="grid-4">
+      <div class="glass-card stat-card accent-purple">
+        <h3>Last Night</h3>
+        <p class="stat-big"><span id="lastNightDuration">–</span><small> hrs</small></p>
+        <span id="lastNightQuality" class="badge"></span>
+      </div>
+      <div class="glass-card stat-card accent-blue">
+        <h3>7-Day Average</h3>
+        <p class="stat-big"><span id="avgSleep7">–</span><small> hrs</small></p>
+      </div>
+      <div class="glass-card stat-card accent-green">
+        <h3>Sleep Goal</h3>
+        <p class="stat-big"><span id="sleepGoalEl">–</span><small> hrs</small></p>
+        <span id="goalStatus" class="badge"></span>
+      </div>
+      <div class="glass-card stat-card accent-cyan">
+        <h3>Sleep Score</h3>
+        <p class="stat-big"><span id="sleepScore">–</span><small> / 100</small></p>
+        <span id="sleepScoreBadge" class="badge"></span>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="glass-card">
+        <h3>Quick Sleep Tracker</h3>
+        <p class="muted" id="quickStatus">Not tracking. Tap a button when you go to bed or nap.</p>
+        <div class="sleep-mode">
+          <h4>🌙 Night Sleep</h4>
+          <button id="startNightSleep" class="btn-primary">Going to Sleep</button>
+          <button id="endNightSleep" class="btn-ghost">Wake Up</button>
+        </div>
+        <div class="sleep-mode">
+          <h4>⚡ Power Nap</h4>
+          <button id="startNap" class="btn-primary">Start Nap</button>
+          <button id="endNap" class="btn-ghost">End Nap</button>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h3>Manual Entry</h3>
+        <form id="sleepForm" class="stacked-form">
+          <label for="sleepDate">Date</label>
+          <input type="date" id="sleepDate" required />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="bedtime">Bedtime</label>
+              <input type="time" id="bedtime" required />
+            </div>
+            <div class="form-group">
+              <label for="wakeupTime">Wake-up</label>
+              <input type="time" id="wakeupTime" required />
+            </div>
+          </div>
+          <label for="sleepQuality">How did you sleep?</label>
+          <select id="sleepQuality" required>
+            <option value="excellent">😄 Excellent</option>
+            <option value="good" selected>🙂 Good</option>
+            <option value="fair">😐 Fair</option>
+            <option value="poor">😞 Poor</option>
+          </select>
+          <button type="submit" class="btn-primary">💾 Save Entry</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="grid-1">
+      <div class="glass-card">
+        <h3>Sleep Pattern (7 days)</h3>
+        <canvas id="sleepBarChart" height="150"></canvas>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="glass-card">
+        <h3>Sleep History</h3>
+        <div id="sleepHistory"></div>
+      </div>
+      <div class="glass-card">
+        <h3>💡 Sleep Tips</h3>
+        <ul class="tips-list" id="sleepTips"></ul>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/sleep.js"></script>
+</body>
+</html>

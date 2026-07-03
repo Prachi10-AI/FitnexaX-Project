@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign Up – FitnexaX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-body">
+  <div class="bg-orbs"><span></span><span></span><span></span></div>
+
+  <div class="auth-card auth-card-wide glass-card">
+    <a href="index.html" class="logo auth-logo">Fitnexa<span class="logo-x">X</span></a>
+    <h2>Create your FitnexaX account</h2>
+    <p class="auth-sub">A minute of setup for a lifetime of better health.</p>
+    <form id="signupForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your full name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="you@example.com" required autocomplete="email" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Min 6 characters" required minlength="6" autocomplete="new-password" />
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Repeat password" required autocomplete="new-password" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="number" id="age" min="10" max="100" placeholder="e.g. 24" required />
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select id="gender" required>
+            <option value="">Select</option>
+            <option>Female</option>
+            <option>Male</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="height">Height (cm)</label>
+          <input type="number" id="height" min="80" max="250" placeholder="e.g. 165" required />
+        </div>
+        <div class="form-group">
+          <label for="weight">Weight (kg)</label>
+          <input type="number" id="weight" min="20" max="300" step="0.1" placeholder="e.g. 60" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fitnessLevel">Fitness Level</label>
+          <select id="fitnessLevel" required>
+            <option value="">Select</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dietPreference">Diet Preference</label>
+          <select id="dietPreference" required>
+            <option value="">Select</option>
+            <option value="vegetarian">Vegetarian</option>
+            <option value="vegan">Vegan</option>
+            <option value="non-veg">Non-Veg</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="calorieGoal">Daily Calorie Goal</label>
+          <input type="number" id="calorieGoal" min="800" max="6000" placeholder="e.g. 2000" required />
+        </div>
+        <div class="form-group">
+          <label for="sleepGoal">Sleep Goal (hours)</label>
+          <input type="number" id="sleepGoal" min="4" max="12" step="0.5" placeholder="e.g. 8" required />
+        </div>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <input type="checkbox" id="terms" required />
+        <label for="terms">I agree to the terms and privacy policy.</label>
+      </div>
+
+      <button type="submit" class="btn-primary full-width">Create Account</button>
+      <p id="signupError" class="form-error"></p>
+      <p class="form-note">Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

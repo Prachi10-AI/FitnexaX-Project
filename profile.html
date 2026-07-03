@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile – FitnexaX</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="app-body">
+  <button id="sidebarToggle" class="sidebar-toggle" aria-label="Menu">☰</button>
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">Fitnexa<span class="logo-x">X</span></div>
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="nav-link">📊 Dashboard</a>
+      <a href="fitness.html" class="nav-link">🏋️ Fitness</a>
+      <a href="diet.html" class="nav-link">🥗 Diet</a>
+      <a href="sleep.html" class="nav-link">😴 Sleep</a>
+      <a href="profile.html" class="nav-link">👤 Profile</a>
+    </nav>
+    <button id="logoutBtn" class="nav-link logout-btn">🚪 Logout</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="page-header">
+      <div>
+        <h1>Profile 👤</h1>
+        <p class="page-sub">Your details, goals and data.</p>
+      </div>
+    </header>
+
+    <section class="grid-2">
+      <div class="glass-card profile-card">
+        <div class="avatar-wrapper">
+          <img id="avatarPreview" class="avatar-img" alt="Avatar" />
+        </div>
+        <h3 id="profileNameBig"></h3>
+        <p class="muted" id="profileEmail"></p>
+        <label for="avatarInput" class="btn-ghost avatar-btn">📷 Change photo</label>
+        <input type="file" id="avatarInput" accept="image/*" hidden />
+        <div class="profile-badges">
+          <span class="badge">🏆 <span id="profilePoints">0</span> pts</span>
+          <span class="badge">📅 Joined <span id="profileJoined">–</span></span>
+        </div>
+      </div>
+
+      <div class="glass-card">
+        <h3>Profile Information</h3>
+        <div class="info-grid">
+          <p><span class="muted">Age</span><strong id="profileAge"></strong></p>
+          <p><span class="muted">Gender</span><strong id="profileGender"></strong></p>
+          <p><span class="muted">Height</span><strong><span id="profileHeight"></span> cm</strong></p>
+          <p><span class="muted">Weight</span><strong><span id="profileWeight"></span> kg</strong></p>
+          <p><span class="muted">BMI</span><strong><span id="profileBMI"></span> (<span id="profileBMIStatus"></span>)</strong></p>
+          <p><span class="muted">Fitness Level</span><strong id="profileFitnessLevel"></strong></p>
+          <p><span class="muted">Diet Preference</span><strong id="profileDietPreference"></strong></p>
+          <p><span class="muted">Calorie Goal</span><strong><span id="profileCalorieGoal"></span> kcal</strong></p>
+          <p><span class="muted">Sleep Goal</span><strong><span id="profileSleepGoal"></span> hrs</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass-card">
+      <h3>Edit Profile</h3>
+      <form id="profileForm" class="grid-3">
+        <input type="text" id="editName" placeholder="Name" />
+        <input type="number" id="editAge" placeholder="Age" min="10" max="100" />
+        <select id="editGender">
+          <option value="">Gender</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Other</option>
+        </select>
+        <input type="number" id="editHeight" placeholder="Height (cm)" min="80" max="250" />
+        <input type="number" id="editWeight" placeholder="Weight (kg)" min="20" max="300" step="0.1" />
+        <select id="editFitnessLevel">
+          <option value="">Fitness Level</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+        <select id="editDietPreference">
+          <option value="">Diet Preference</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="non-veg">Non-Veg</option>
+        </select>
+        <input type="number" id="editCalorieGoal" placeholder="Calorie Goal" min="800" max="6000" />
+        <input type="number" id="editSleepGoal" placeholder="Sleep Goal (hrs)" min="4" max="12" step="0.5" />
+        <button type="submit" class="btn-primary full-width">💾 Save Changes</button>
+      </form>
+    </section>
+
+    <section class="glass-card danger-zone">
+      <h3>Your Data</h3>
+      <p class="muted">All data is stored locally in your browser. Export a backup or reset your account.</p>
+      <div class="inline-form">
+        <button id="exportDataBtn" class="btn-ghost">⬇ Export my data (JSON)</button>
+        <button id="resetDataBtn" class="btn-danger">🗑 Delete my account & data</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/storage.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/profile.js"></script>
+</body>
+</html>
